@@ -14,8 +14,25 @@ if (navigator.serviceWorker) {
 }
 
 /**
- * This function displays an alert.
+ * This is the Local Storage
  */
-function myButtonClicked() {
-  document.getElementById("hello-world").innerHTML = "<p>Hello, World!</p>"
+
+function onLoadCookieCount() {
+  if (localStorage.previousCookieCount) {
+    document.getElementById("hello-world").innerHTML =
+      "<p> Cookies Obtained: " + localStorage.previousCookieCount + "</p>"
+  } else {
+    localStorage.previousCookieCount = 0
+  }
+}
+
+/**
+ * This function adds a cookie to the counter every time you click
+ */
+var counter = 0
+
+function myImageClicked() {
+  localStorage.previousCookieCount++
+  document.getElementById("hello-world").innerHTML =
+    "<p> Cookies Obtained: " + localStorage.previousCookieCount + "</p>"
 }
